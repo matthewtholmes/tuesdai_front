@@ -20,19 +20,18 @@ function Edit(props) {
   const [status, setStatus] = useState(props.location.data.status)
   const [priority, setPriority] = useState(props.location.data.priority)
   const [user_id, setUserId] = useState(props.location.data.user_id)
+  const [users, setUsers] = useState([])
 
-
-  function getValues() {
-    fetch()
-    .then(res => res.json())
-    .then(data => data)
+  function DisplayNames() {
+    return users.map(user => <option>{user.name}</option>)
   }
-  
-  // id: team.task_id,
-  // task: team.task,
-  // user_id: team.user_id,
-  // status: team.status,
-  // priority: team.priority
+
+  function getUsers() {
+    fetch(`https://tuesdai-server.herokuapp.com/get/users`)
+    .then(res => res.json())
+    .then(data => setUsers(data))
+    .catch(err => alert(err))
+  }
 
   function handleSubmit() {
       fetch(`https://tuesdai-server.herokuapp.com/patch/task`, {
@@ -67,9 +66,18 @@ function Edit(props) {
     } 
     }))
   }
+
+  useEffect(() => {
+    getUsers()
+  }, [])
+
   return (
     <div className='edit'>
        <TextField id="outlined-basic" label="Task" variant="outlined" onChange={(e) => setTask(e.target.value)} value={task} />
+       <NativeSelect id="demo-customized-select-native" onChange={(e) => setName(e.target.value)} value={name}>
+          <option value='' selected hidden></option>
+          <DisplayNames/>
+        </NativeSelect>
        <TextField id="outlined-basic" label="Name" variant="outlined" onChange={(e) => setName(e.target.value)} value={name}/>
        <TextField id="outlined-basic" label="Status" variant="outlined" onChange={(e) => setStatus(e.target.value)} value={status}/>
        <TextField id="outlined-basic" label="Priority" variant="outlined" onChange={(e) => setPriority(e.target.value)} value={priority} />

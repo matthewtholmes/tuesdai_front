@@ -2,6 +2,7 @@ body {
   margin: 0;
   /* background-color: goldenrod; */
   /* background image: url */
+  background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F547609635941186167%2F&psig=AOvVaw1DwH5mIjy5oiavA-b_6dx6&ust=1626904047771000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPi31fzP8vECFQAAAAAdAAAAABADresize=2000:*');
 }
 
 .box {
@@ -28,5 +29,7 @@ body {
 
 .box {
   border-radius: 25px;
-  background-color:;
+}
+#demo-customized-select-native {
+  min-width: 90px;
 }
