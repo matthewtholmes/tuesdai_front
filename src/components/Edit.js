@@ -35,7 +35,7 @@ function Edit(props) {
   // priority: team.priority
 
   function handleSubmit() {
-      fetch(`http://localhost:3001/patch/task`, {
+      fetch(`https://tuesdai-server.herokuapp.com/patch/task`, {
         method: 'PATCH',
         body: JSON.stringify(
           {
@@ -54,7 +54,7 @@ function Edit(props) {
     .then(res => res.json())
     .then(json => alert(`Success`))
     .catch(err => alert(err))
-    .then(fetch(`http://localhost:3001/patch/user`, {
+    .then(fetch(`https://tuesdai-server.herokuapp.com/patch/user`, {
       method: 'PATCH',
       body: JSON.stringify(
         {

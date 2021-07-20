@@ -39,7 +39,7 @@ function RenderData() {
       .then(res => res.json())
       .then(data => setTeamData(data))
     }
-    fetchTeam('http://localhost:3001/get')
+    fetchTeam('https://tuesdai-server.herokuapp.com/get')
   }, [])
   
   const displayData = () => {

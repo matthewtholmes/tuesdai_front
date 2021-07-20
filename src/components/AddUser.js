@@ -24,7 +24,7 @@ function AddUser() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    fetch(`http://localhost:3001/post/user`, {
+    fetch(`https://tuesdai-server.herokuapp.com/post/user`, {
       method: 'POST',
       body: JSON.stringify({name: newUser}),
       headers: {
@@ -42,7 +42,7 @@ function AddUser() {
 
 function handleDelete(e) {
   e.preventDefault()
-    fetch(`http://localhost:3001/delete/user/${delUser}`, {
+    fetch(`https://tuesdai-server.herokuapp.com/delete/user/${delUser}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
@@ -62,7 +62,7 @@ function fetchUsers(url) {
 
 
 useEffect(() => {
-  fetchUsers('http://localhost:3001/get/users')
+  fetchUsers('https://tuesdai-server.herokuapp.com/get/users')
 }, [triggerDel])
 
 const DisplayUsers = () => {
